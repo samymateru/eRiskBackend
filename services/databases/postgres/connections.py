@@ -81,3 +81,15 @@ class AsyncDBPoolSingleton:
         """
         if self._pool:
             await self._pool.close()
+
+    @staticmethod
+    async def get_db_connection():
+        pool = await AsyncDBPoolSingleton.get_instance().get_pool()
+        async with pool.connection() as conn:
+            yield conn
+
+
+async def get_db_connection():
+    pool = await AsyncDBPoolSingleton.get_instance().get_pool()
+    async with pool.connection() as conn:
+        yield conn
