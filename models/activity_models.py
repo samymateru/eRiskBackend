@@ -100,3 +100,24 @@ async def add_activity_owners(connection: AsyncConnection, owners: NewActivityOw
                 .returning(ActivityOwnerColumns.ACTIVITY_ID.value)
             )
             return await builder.execute()
+
+
+async def get_activity_owners(connection: AsyncConnection, activity_id: str):
+    with exception_response():
+        builder =  await (
+            ReadBuilder(connection=connection)
+            .from_table(Tables.ACTIVITY_OWNERS.value, alias="activity_owner")
+            .join(
+                "LEFT",
+                Tables.USERS.value,
+                "usr.id = activity_owner.user_id",
+                alias="usr",
+                model=BaseUser,
+                use_prefix=True
+            )
+            .select_joins()
+            .where("activity_owner."+ActivityOwnerColumns.ACTIVITY_ID.value, activity_id)
+            .fetch_all()
+        )
+
+        return [Creator(**creator) for creator in builder]

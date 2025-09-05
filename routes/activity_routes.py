@@ -1,7 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, Query
 from __schemas__ import CreateResponse
 from core.utils import exception_response
-from models.activity_models import add_new_activity, get_current_activities, get_single_activity, add_activity_owners
+from models.activity_models import add_new_activity, get_current_activities, get_single_activity, add_activity_owners, \
+    get_activity_owners
 from models.rmp_models import get_current_rmp
 from schemas.activity_schemas import NewActivity, NewActivityOwner
 from services.databases.postgres.connections import AsyncDBPoolSingleton
@@ -65,3 +66,13 @@ async def assign_activity_owners(
     with exception_response():
         await add_activity_owners(connection=connection, owners=owners, activity_id=activity_id)
         return CreateResponse(detail="Activity Owners Added Successfully")
+
+@router.get("/owners/{activity_id}")
+async def fetch_activity_owners(
+        activity_id: str,
+        connection = Depends(AsyncDBPoolSingleton.get_db_connection),
+        #user: CurrentUser  = Depends(get_current_user),
+):
+    with exception_response():
+        data = await get_activity_owners(connection=connection, activity_id=activity_id)
+        return data

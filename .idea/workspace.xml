@@ -4,35 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b163aa7f-1415-40ac-bbc6-01c2ee02660a" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/models/user_models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/activity_reports_routes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/user_routes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schemas/activity_reports_schemas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schemas/users_schemas.py" afterDir="false" />
+    <list default="true" id="b163aa7f-1415-40ac-bbc6-01c2ee02660a" name="Changes" comment="improvements">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__schemas__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__schemas__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/activity_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/activity_models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/risk_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/risk_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/risk_register_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/risk_register_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/risk_response_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/risk_response_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/rmp_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/rmp_models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/activity_routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/activity_routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/risk_kri_routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/risk_kri_routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/risk_register_routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/risk_register_routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/risk_responses_routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/risk_responses_routes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/risk_routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/risk_routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/rmp_routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/rmp_routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schemas/activity_schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/activity_schemas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schemas/risk_register_schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/risk_register_schemas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schemas/risk_responses_schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/risk_responses_schemas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schemas/risk_schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/risk_schemas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schemas/risk_users_schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/activity_reports_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schemas/rmp_schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/rmp_schemas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/databases/postgres/insert.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/databases/postgres/insert.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/security/security.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/security/security.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,12 +101,21 @@
       <option name="project" value="LOCAL" />
       <updated>1756284120156</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="improvements">
+      <option name="closed" value="true" />
+      <created>1757058986372</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1757058986372</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="improvements" />
+    <option name="LAST_COMMIT_MESSAGE" value="improvements" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -2,6 +2,8 @@ from datetime import datetime
 from typing import Optional
 from psycopg import AsyncConnection
 from pydantic import BaseModel
+
+from __schemas__ import Creator, BaseUser
 from core.constants import Tables, RisksColumns, RiskOwnerColumns
 from core.utils import from_enum, exception_response, get_unique_key
 from schemas.risk_schemas import ReadRisk, CreateRisk, NewRisk, RiskRatingJoin, JoinRisk, NewRiskOwner, CreateRiskOwner
@@ -99,3 +101,23 @@ async def add_risk_owners(connection: AsyncConnection, owners: NewRiskOwner, ris
                 .returning(RiskOwnerColumns.RISK_ID.value)
             )
             return await builder.execute()
+
+async def get_risk_owners(connection: AsyncConnection, risk_id: str):
+    with exception_response():
+        builder =  await (
+            ReadBuilder(connection=connection)
+            .from_table(Tables.RISK_OWNERS.value, alias="risk_owner")
+            .join(
+                "LEFT",
+                Tables.USERS.value,
+                "usr.id = risk_owner.user_id",
+                alias="usr",
+                model=BaseUser,
+                use_prefix=True
+            )
+            .select_joins()
+            .where("risk_owner."+RiskOwnerColumns.RISK_ID.value, risk_id)
+            .fetch_all()
+        )
+
+        return [Creator(**creator) for creator in builder]
