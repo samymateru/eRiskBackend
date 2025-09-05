@@ -2,9 +2,9 @@ from datetime import datetime
 from typing import Optional
 from psycopg import AsyncConnection
 from pydantic import BaseModel
-from core.constants import Tables, RisksColumns
+from core.constants import Tables, RisksColumns, RiskOwnerColumns
 from core.utils import from_enum, exception_response, get_unique_key
-from schemas.risk_schemas import ReadRisk, CreateRisk, NewRisk, RiskRatingJoin, JoinRisk
+from schemas.risk_schemas import ReadRisk, CreateRisk, NewRisk, RiskRatingJoin, JoinRisk, NewRiskOwner, CreateRiskOwner
 from services.databases.postgres.insert import InsertQueryBuilder
 from services.databases.postgres.read import ReadBuilder
 
@@ -28,13 +28,15 @@ async def get_general_risk_details(connection: AsyncConnection, risk_id: str):
                 "rt.risk_id = risk.risk_id",
                 alias="rt",
                 model=RiskRatingJoin,
-                use_prefix=False)
+                use_prefix=True)
             .join(
                 "LEFT",
                 "business_process",
                 "process.id = risk.process",
                 alias="process",
-                model=BusinessProcess)
+                model=BusinessProcess,
+                use_prefix=True
+            )
             .select_joins()
             .where("risk.risk_id", risk_id)
             .fetch_one()
@@ -53,8 +55,7 @@ async def get_all_risk_approved(connection: AsyncConnection, risk_register_id: s
             .where("risk"+"."+from_enum(RisksColumns.RISK_REGISTER_ID), risk_register_id)
             .fetch_all()
         )
-        print(builder)
-        return [ReadRisk(**data) for data in builder]
+        return [JoinRisk(**data) for data in builder]
 
 
 async def add_new_risk(connection: AsyncConnection, risk: NewRisk, risk_register_id: str):
@@ -81,3 +82,20 @@ async def add_new_risk(connection: AsyncConnection, risk: NewRisk, risk_register
     )
 
     return await builder.execute()
+
+async def add_risk_owners(connection: AsyncConnection, owners: NewRiskOwner, risk_id: str):
+    with exception_response():
+        for owner in owners.owners:
+            __owner__ = CreateRiskOwner(
+                risk_owner_id=get_unique_key(),
+                risk_id=risk_id,
+                date_assigned=datetime.now(),
+                user_id=owner
+            )
+            builder = (
+                InsertQueryBuilder(connection=connection)
+                .into_table(Tables.RISK_OWNERS.value)
+                .values(__owner__)
+                .returning(RiskOwnerColumns.RISK_ID.value)
+            )
+            return await builder.execute()

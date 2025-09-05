@@ -19,8 +19,8 @@ class CreateRiskRegister(BaseModel):
     name: str
     year: Optional[int] = datetime.now().year
     status: Optional[RiskRegisterStatus] = RiskRegisterStatus.CURRENT
-    creator: Optional[str] = "23777b70230b"
-    approver: Optional[str] = "23777b70230b"
+    creator: str
+    approver: Optional[str] = None
     approved_at: Optional[datetime] = datetime.now()
     created_at: Optional[datetime] = datetime.now()
 

@@ -1,16 +1,19 @@
 from enum import Enum
 
-from schemas.risk_schemas import CreateRisk
-
-
 class Tables(str, Enum):
     RISKS = "risks"
     RISK_RATINGS = "risk_ratings"
     RISK_RESPONSES = "risk_responses"
+    RISK_OWNERS = "risk_owners"
     RISK_KRI = "risk_kri"
     ACTIVITIES = "activities"
+    ACTIVITY_OWNERS = "activity_owners"
     RMP = "rmp"
     RISK_REGISTERS = "risk_registers"
+    USERS = "users"
+    ORGANIZATIONS_USERS = "organizations_users"
+    RISK_MODULE_USERS = "risk_module_users"
+    ACTIVITY_REPORTS = "activity_reports"
 
 class RisksColumns(str, Enum):
     RISK_ID = "risk_id"
@@ -94,3 +97,34 @@ class RiskRegisterColumns(str, Enum):
     APPROVED_AT = "approved_at"
     CREATED_AT = "created_at"
 
+class ActivityReportsColumns(str, Enum):
+    ACTIVITY_REPORT_ID = "activity_report_id"
+    ACTIVITY_ID = "activity_id"
+    DESCRIPTION = "description"
+    CONCLUSION = "conclusion"
+    ATTACHMENT = "attachment"
+    CREATED_BY = "created_by"
+    CREATED_AT = "created_at"
+
+class EntityUserColumns(str, Enum):
+    ID = "id"
+    ENTITY = "entity"
+    NAME = "name"
+    EMAIL = "email"
+    TELEPHONE = "telephone"
+    ADMINISTRATOR = "administrator"
+    OWNER = "owner"
+    CREATED_AT = "created_at"
+    IMAGE = "image"
+
+class ActivityOwnerColumns(str, Enum):
+    ACTIVITY_OWNER_ID = "activity_owner_id"
+    ACTIVITY_ID = "activity_id"
+    USER_ID = "user_id"
+    DATE_ASSIGNED = "date_assigned"
+
+class RiskOwnerColumns(str, Enum):
+    RISK_OWNER_ID = "risk_owner_id"
+    RISK_ID = "risk_id"
+    USER_ID = "user_id"
+    DATE_ASSIGNED = "date_assigned"

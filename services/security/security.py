@@ -5,6 +5,7 @@ from argon2.exceptions import VerifyMismatchError
 from fastapi import Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 from dotenv import load_dotenv
+import bcrypt
 
 from __schemas__ import CurrentUser
 
@@ -25,6 +26,11 @@ def hash_password(password: str) -> str:
     Hashes a plain-text password using Argon2.
     """
     return password_hasher.hash(password)
+
+def generate_hash_password(password: str) -> str:
+    salt = bcrypt.gensalt()
+    hashed = bcrypt.hashpw(password.encode(), salt).decode()
+    return hashed
 
 def verify_password(hashed_password: str, plain_password: str) -> bool:
     """

@@ -8,13 +8,14 @@ from services.databases.postgres.read import ReadBuilder
 from services.databases.postgres.update import UpdateQueryBuilder
 
 
-async def add_new_risk_register(connection: AsyncConnection, register: NewRiskRegister, module_id: str):
+async def add_new_risk_register(connection: AsyncConnection, register: NewRiskRegister, module_id: str, user_id: str):
     with exception_response():
         __register__ = CreateRiskRegister(
             risk_register_id=get_unique_key(),
             module_id=module_id,
             name=register.name,
-            status=RiskRegisterStatus.CURRENT
+            status=RiskRegisterStatus.CURRENT,
+            creator=user_id
         )
         builder = (
             InsertQueryBuilder(connection=connection)

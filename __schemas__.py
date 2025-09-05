@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from typing import Optional
 from enum import Enum
+from datetime import datetime
 
 class CurrentUser(BaseModel):
     user_id: Optional[str] = None
@@ -23,3 +24,23 @@ class Frequency(str, Enum):
     ANNUALLY = "Annually"
     SEMI_ANNUALLY = "Semi Annually"
     SPECIFIC_DATE = "Specific Date"
+
+class CreateResponse(BaseModel):
+    detail: str
+
+class BaseUser(BaseModel):
+    id: str
+    name: str
+    email: str
+    image: Optional[str] = None
+    telephone: Optional[str] = None
+    status: Optional[str] =None
+    created_at : Optional[datetime] = datetime.now()
+
+class Creator(BaseModel):
+    usr_id: str
+    usr_name: str
+    usr_email: str
+    user_telephone: Optional[str] = None
+    usr_image: Optional[str] = None
+    usr_status: Optional[str] = None

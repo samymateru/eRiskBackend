@@ -165,44 +165,6 @@ class InsertQueryBuilder:
 
         return query, values
 
-    async def _record_exists(self):
-        """
-        Internal method to check if a record already exists in the target table
-        based on the column-value conditions specified via `check_exists()`.
-
-        This method builds a parameterized SELECT query using the conditions and
-        executes it using the asynchronous connection. If a matching record is found,
-        it returns True; otherwise, False.
-
-        Returns:
-            bool: True if a matching record exists, False otherwise.
-
-        Raises:
-            HTTPException: If the SELECT query execution fails due to a database error.
-
-        Example:
-            exists = await self._record_exists()
-        """
-        if not self._check_exists:
-            return False
-
-        where_clauses = [
-            sql.SQL("{} = {}").format(sql.Identifier(k), sql.Placeholder(k))
-            for k in self._check_exists
-        ]
-        where_sql = sql.SQL(" AND ").join(where_clauses)
-
-        query = sql.SQL("SELECT 1 FROM {} WHERE {} LIMIT 1").format(
-            sql.Identifier(self._table),
-            where_sql
-        )
-
-        try:
-            async with self.connection.cursor() as cursor:
-                await cursor.execute(query, self._check_exists)
-                return await cursor.fetchone() is not None
-        except Exception as e:
-            raise Exception(f"Failed to check if exists due to error: {e}")
 
     async def execute(self):
         """
@@ -244,11 +206,6 @@ class InsertQueryBuilder:
                     return None
             except Exception as e:
                 raise Exception(f"Failed to execute raw SQL: {e}")
-
-        if await self._record_exists():
-            raise Exception(
-            f"""Record already exists in table {self._table.replace('_', ' ')
-            .title() if '_' in self._table else self._table.capitalize()}""")
 
         query, params = self.build()
         try:

@@ -1,10 +1,12 @@
 from fastapi import APIRouter, Depends, HTTPException
+
+from __schemas__ import CreateResponse
 from core.constants import RisksColumns
 from core.utils import  exception_response
-from models.risk_models import get_general_risk_details, get_all_risk_approved, add_new_risk
+from models.risk_models import get_general_risk_details, get_all_risk_approved, add_new_risk, add_risk_owners
 from models.risk_rating_models import initialize_risk_rating
 from models.risk_register_models import get_current_risk_register
-from schemas.risk_schemas import NewRisk
+from schemas.risk_schemas import NewRisk, NewRiskOwner
 from services.databases.postgres.connections import AsyncDBPoolSingleton
 
 
@@ -66,4 +68,14 @@ async def create_risk(
         return result
 
 
+@router.post("/owners/{risk_id}", status_code=201, response_model=CreateResponse)
+async def assign_risk_owners(
+        risk_id: str,
+        owners: NewRiskOwner,
+        connection = Depends(AsyncDBPoolSingleton.get_db_connection),
+        #user: CurrentUser  = Depends(get_current_user),
+):
+    with exception_response():
+        await add_risk_owners(connection=connection, owners=owners, risk_id=risk_id)
+        return CreateResponse(detail="Risk Owners Added Successfully")
 

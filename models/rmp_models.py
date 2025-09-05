@@ -7,13 +7,14 @@ from services.databases.postgres.read import ReadBuilder
 from services.databases.postgres.update import UpdateQueryBuilder
 
 
-async def add_new_rmp(connection: AsyncConnection, rmp: NewRMP, module_id: str):
+async def add_new_rmp(connection: AsyncConnection, rmp: NewRMP, module_id: str, user_id:str):
     with exception_response():
         __register__ = CreateRMP(
             rmp_id=get_unique_key(),
             module_id=module_id,
             name=rmp.name,
-            status=RMPStatus.CURRENT
+            status=RMPStatus.CURRENT,
+            creator=user_id
         )
         builder = (
             InsertQueryBuilder(connection=connection)

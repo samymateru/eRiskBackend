@@ -5,40 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b163aa7f-1415-40ac-bbc6-01c2ee02660a" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/__schemas__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/middlewares.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/activity_models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/kri_models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/risk_models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/risk_rating_models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/risk_register_models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/risk_response_models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/rmp_models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/activity_routes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/risk_kri_routes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/risk_ratings_routes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/risk_register_routes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/risk_responses_routes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/risk_routes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/rmp_routes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schemas/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schemas/activity_schemas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schemas/risk_kri_schemas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schemas/risk_ratings_schemas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schemas/risk_register_schemas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schemas/risk_responses_schemas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schemas/risk_schemas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schemas/risk_users_schemas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schemas/rmp_schemas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/loggers/logger.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/security/security.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tester.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/user_models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/activity_reports_routes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/user_routes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/activity_reports_schemas.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schemas/users_schemas.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__schemas__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__schemas__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/databases/postgres/connections.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/databases/postgres/connections.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/databases/postgres/read.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/databases/postgres/read.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/activity_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/activity_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/risk_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/risk_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/risk_register_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/risk_register_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/risk_response_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/risk_response_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/rmp_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/rmp_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/activity_routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/activity_routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/risk_kri_routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/risk_kri_routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/risk_register_routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/risk_register_routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/risk_responses_routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/risk_responses_routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/risk_routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/risk_routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/rmp_routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/rmp_routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemas/activity_schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/activity_schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemas/risk_register_schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/risk_register_schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemas/risk_responses_schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/risk_responses_schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemas/risk_schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/risk_schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemas/risk_users_schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/activity_reports_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemas/rmp_schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/rmp_schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/databases/postgres/insert.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/databases/postgres/insert.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/security/security.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/security/security.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +49,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;samymateru&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/samymateru/eRiskBackend.git&quot;,
+    &quot;accountId&quot;: &quot;6411a992-8491-4d4c-aa78-6f6516803d8c&quot;
+  }
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -62,7 +68,9 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="315AksYr8EYtIfxPR7scHstcrTE" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -78,9 +86,10 @@
     &quot;Python.utils.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Samuel/PycharmProjects/CornerStone-Client&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Samuel/PycharmProjects/CornerStone-Client&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;
   }
 }</component>
   <component name="SharedIndexes">
@@ -107,7 +116,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754811041458</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="initial commit">
+      <option name="closed" value="true" />
+      <created>1756284120155</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1756284120156</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -119,7 +136,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/../CornerStone-Client/main.py</url>
-          <line>250</line>
+          <line>259</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

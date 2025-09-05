@@ -13,6 +13,9 @@ from routes.risk_kri_routes import router as risk_kri
 from routes.activity_routes import router as activities
 from routes.rmp_routes import router as rmp
 from routes.risk_register_routes import router as risk_registers
+from routes.user_routes import router as risk_users
+from routes.activity_reports_routes import router as activity_reports
+
 
 
 load_dotenv()
@@ -48,7 +51,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 @app.middleware("http")
 async def catch_exceptions_middleware(request: Request, call_next):
@@ -90,7 +92,6 @@ async def catch_exceptions_middleware(request: Request, call_next):
 async def home():
     return "Hello world"
 
-
 app.include_router(risks, tags=["Risks Router"])
 app.include_router(risk_responses, tags=["Risks Responses Router"])
 app.include_router(risk_ratings, tags=["Risks Ratings Router"])
@@ -98,7 +99,8 @@ app.include_router(risk_kri, tags=["Risks KRI Router"])
 app.include_router(activities, tags=["Activities Router"])
 app.include_router(rmp, tags=["Risk Management Plan Router"])
 app.include_router(risk_registers, tags=["Risk Register Router"])
-
+app.include_router(risk_users, tags=["Risk Users Router"])
+app.include_router(activity_reports, tags=["Activity Reports Router"])
 
 
 if __name__ == "__main__":

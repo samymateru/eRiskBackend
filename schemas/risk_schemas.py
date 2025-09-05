@@ -13,6 +13,9 @@ class NewRisk(BaseModel):
     category: str
     owners: Optional[List[str]] = None
 
+class NewRiskOwner(BaseModel):
+    owners: List[str]
+
 class CreateRisk(BaseModel):
     risk_id: str
     register_id: str
@@ -25,6 +28,12 @@ class CreateRisk(BaseModel):
     created_at: datetime
     creator: Optional[str] = None
     year: int
+
+class CreateRiskOwner(BaseModel):
+    risk_owner_id: str
+    user_id: str
+    risk_id: str
+    date_assigned: datetime
 
 class ReadRisk(BaseModel):
     risk_id: str
